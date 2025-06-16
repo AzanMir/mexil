@@ -1,0 +1,76 @@
+.maindiv {
+    background-image: url("bgimg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 83vh;
+    width: 100%;
+    margin: none;
+    padding: 0;
+    padding-top: 100px;
+    margin-top: -96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centraldiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top {
+    font-family: "Poppins";
+    color: white;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+}
+
+.center {
+    margin-top: 20px;
+    font-family: "Inter";
+    color: white;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    width: 650px;
+    height: 87px;
+
+}
+
+.bottom {
+    display: flex;
+
+
+}
+
+.bottomLeft {
+    font-family: "Inter";
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 40px;
+    margin-right: 20px;
+
+}
+
+.bottomRight {
+    font-family: "Inter";
+    color: black;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: white;
+
+}

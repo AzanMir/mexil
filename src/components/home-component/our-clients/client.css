@@ -1,0 +1,30 @@
+.uppeer {
+    text-align: center;
+}
+
+.gren {
+    color: rgba(76, 175, 79, 1);
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Inter";
+}
+
+.bld {
+    color: rgba(77, 77, 77, 1);
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Inter";
+}
+
+.clientDesc {
+
+    font-weight: 400;
+    font-size: 16px;
+    font-family: "Inter";
+}
+
+.lower {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

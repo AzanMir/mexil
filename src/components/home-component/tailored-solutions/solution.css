@@ -1,0 +1,75 @@
+.main {
+    padding: 40px;
+    padding-bottom: 0px;
+}
+
+.upper {
+    padding-left: 70px;
+}
+
+.green {
+    color: #41AE5D;
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Inter";
+}
+
+.boldd {
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Inter";
+}
+
+.regularr {
+
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+}
+
+.button {
+    font-family: "Inter";
+    font-weight: 600;
+    margin-top: 15px;
+    background: #E6E6E6;
+    font-size: 10px;
+    font-size: 16px;
+    padding: 19px 58px;
+    border-radius: 6px;
+
+}
+
+
+.mapp {
+    margin-top: 20px;
+    padding: 50px;
+    flex-wrap: wrap;
+
+}
+
+.cardTitle {
+    font-family: "Poppins";
+    font-size: 24px;
+    font-weight: 600;
+    width: 200px;
+}
+
+.cardDesc {
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.cardButton {
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 18px;
+    width: 150px;
+    margin-top: 15px;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+}
