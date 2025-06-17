@@ -1,26 +1,31 @@
-.main {
+.sliderMain {
     padding: 40px;
     padding-bottom: 0px;
 }
 
-.upper {
+.sliderUpper,
+.sliderLower {
     padding-left: 70px;
 }
 
-.green {
+.sliderLower {
+    padding-top: 50px;
+}
+
+.sliderGreen {
     color: #41AE5D;
     font-weight: 600;
     font-size: 36px;
     font-family: "Inter";
 }
 
-.boldd {
+.sliderBold {
     font-weight: 600;
     font-size: 36px;
     font-family: "Inter";
 }
 
-.regularr {
+.sliderRegular {
 
     font-family: "Inter";
     font-size: 20px;
@@ -30,7 +35,7 @@
 
 }
 
-.button {
+.sliderButton {
     font-family: "Inter";
     font-weight: 600;
     margin-top: 15px;
@@ -42,34 +47,12 @@
 
 }
 
-
-.mapp {
-    margin-top: 20px;
-    padding: 50px;
-    flex-wrap: wrap;
-
-}
-
-.cardTitle {
+.slideDesc {
     font-family: "Poppins";
-    font-size: 24px;
     font-weight: 600;
-    width: 200px;
+    font-size: 28px;
 }
 
-.cardDesc {
-    font-family: "Inter";
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.cardButton {
-    font-family: "Inter";
-    font-weight: 500;
-    font-size: 18px;
-    width: 150px;
-    margin-top: 15px;
-    height: 50px;
-    border: none;
-    border-radius: 6px;
+.slideImage {
+    height: 400px;
 }

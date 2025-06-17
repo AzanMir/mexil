@@ -1,0 +1,41 @@
+.productMain {
+    background-color: rgba(38, 50, 56, 1);
+    padding: 40px;
+    padding-left: 100px;
+    height: 100vh;
+}
+
+.productWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.productBold {
+    color: white;
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Inter";
+}
+
+.productGreen {
+    color: #41AE5D;
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Inter";
+}
+
+.productButton {
+    font-family: "Inter";
+    font-weight: 500;
+    margin-top: 15px;
+    font-size: 10px;
+    font-size: 18px;
+    padding: 19px 58px;
+    border-radius: 6px;
+    color: white;
+    padding-left: 0px;
+}
+
+.template {
+    display: flex;
+}

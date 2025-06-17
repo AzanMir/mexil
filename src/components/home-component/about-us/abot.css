@@ -15,6 +15,7 @@
 
 .right {
     flex: 2;
+    flex-direction: column;
 }
 
 .third {
@@ -46,4 +47,89 @@
 .third {
     margin-left: -430px;
     margin-top: 200px;
+}
+
+.tp {
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 20px;
+    color: rgba(65, 174, 93, 1);
+    border: none;
+    background-color: white;
+    padding-top: 200px;
+}
+
+.tpsec {
+    padding-left: 40px;
+    padding-top: 35px;
+    padding-bottom: 40px;
+}
+
+.tpText {
+    font-size: 54px;
+    font-weight: 600;
+    font-family: "space grotesk";
+}
+
+.btmText {
+    font-weight: 400;
+    font-size: 16px;
+    font-family: "Inter";
+}
+
+.tpthird {
+    padding-left: 40px;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+
+
+
+}
+
+.elmtdesc {
+    padding-left: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: "Inter";
+    text-align: center;
+
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.option {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+.btm {
+    padding-left: 40px;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    color: rgba(76, 175, 79, 1);
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.buttonn {
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Inter";
+    padding: 15px 25px;
+    border: 1px solid rgba(76, 175, 79, 1);
+    border-radius: 6px;
 }

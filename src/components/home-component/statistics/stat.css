@@ -1,0 +1,67 @@
+.statmain {
+    background-color: rgba(38, 50, 56, 1);
+}
+
+.statWrapper {
+    padding: 70px;
+    display: flex;
+}
+
+.statTitle,
+.statDesc,
+.statButton {
+    color: white;
+    font-family: "Inter";
+}
+
+.statTitle {
+    font-weight: 600;
+    font-size: 38px;
+}
+
+.statDesc {
+    font-weight: 400;
+    font-size: 20px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+.statButton {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 19px 50px;
+    background-color: rgba(74, 85, 92, 1);
+    border-radius: 6px;
+}
+
+.innerStatDesc,
+.innerStatTitle {
+    font-family: "Poppins";
+    color: white;
+}
+
+.innerStatTitle {
+    font-weight: 500;
+    font-size: 38px;
+}
+
+.innerStatDesc {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.statLeft {
+    width: 800px;
+    margin-right: 60px;
+}
+
+.statRight {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    justify-content: right;
+}
+
+.statmap {
+    width: 250px;
+}
