@@ -158,7 +158,7 @@ export default function Form() {
               I have read and accepted the privacy policy
             </label>
           </div>
-          <div
+          <button
             style={{
               fontFamily: "Inter",
               fontWeight: "600",
@@ -168,11 +168,13 @@ export default function Form() {
               width: "fit-content",
               borderRadius: "6px",
               marginTop: "20px",
+              cursor: "pointer",
             }}
-            className="submit"
+            type="submit"
+            className="button"
           >
             Send us a message!
-          </div>
+          </button>
         </div>
       </div>
     </div>
