@@ -1,0 +1,102 @@
+.testMain {
+    padding: 0px;
+}
+
+.testWrapper {
+    padding: 0px 50px;
+}
+
+.testUpper {
+    font-family: "Inter";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.subTitle {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.spnTitle {
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.testGreen {
+    color: rgba(65, 174, 93, 1);
+}
+
+.testDesc,
+.username,
+.cnt {
+    font-family: "Inter";
+}
+
+.pfpp {
+    border-radius: 100%;
+}
+
+.username {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.cnt {
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.testmapUpper {
+    display: flex;
+}
+
+.status {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.country {
+    display: flex;
+    align-items: center;
+}
+
+.statuss {
+    margin-left: 15px;
+}
+
+.stary {
+    margin-top: 10px;
+}
+
+.testLowerMap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #908a8a !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 50% !important;
+    transition: background 0.3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 20px !important;
+}

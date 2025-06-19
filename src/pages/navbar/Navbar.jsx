@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
-import Logo from "./logo.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -9,7 +8,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div>
-          <img src={Logo} alt="" className="mexilLogo" />
+          <img src="/assets/mexill.png" alt="" className="mexilLogo" />
         </div>
 
         <div>

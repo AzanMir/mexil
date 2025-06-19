@@ -1,6 +1,6 @@
 import "./slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, Mousewheel } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 import "swiper/css";
 
 const slideImg = [
@@ -55,9 +55,8 @@ export default function Sliderr() {
           modules={[Mousewheel]}
           slidesPerView={3.3}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
           mousewheel={{ forceToAxis: true }}
-          touchRatio={1.5}
+          touchRatio={1}
           simulateTouch={true}
           className="swiperContainer"
         >

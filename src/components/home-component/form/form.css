@@ -1,0 +1,15 @@
+.boxes {
+    width: 400px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 20px;
+    height: 30px;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.boxes:focus {
+    outline: none;
+}

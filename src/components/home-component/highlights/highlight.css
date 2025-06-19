@@ -1,0 +1,92 @@
+.highWrapper {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.div1 {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Inter";
+    margin-bottom: 50px;
+}
+
+.Left1 {
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.Green1 {
+    color: rgba(46, 208, 110, 1);
+}
+
+.Right1 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.main2 {
+    display: flex;
+}
+
+.highMap {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 6px;
+
+}
+
+
+.highMapLeft {
+    padding: 30px 10px;
+    font-family: "Inter";
+    width: 700px;
+}
+
+.divv1 {
+    font-weight: 600;
+    font-size: 34px;
+    color: white;
+}
+
+.divv2 {
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    margin: 10px 0px 20px 0px;
+}
+
+.divv3 {
+    display: flex;
+}
+
+.span1 {
+    padding: 12px 15px;
+    border-radius: 47px;
+    border: 1px solid white;
+    margin: 0px 10px 0px 0px;
+    color: white;
+}
+
+.divv4 {
+    display: flex;
+}
+
+.highButton {
+    font-family: "Inter";
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid white;
+    padding: 10px 17px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.div3 {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}

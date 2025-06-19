@@ -1,0 +1,18 @@
+.ftt {
+    padding: 10px;
+    border-radius: 100%;
+    background-color: rgb(76, 89, 95);
+    margin-right: 10px;
+}
+
+.fot3 img {
+    display: flex;
+}
+
+.fft {
+    margin-top: 10px;
+}
+
+.footForm:focus {
+    outline: none;
+}
