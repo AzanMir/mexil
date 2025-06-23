@@ -1,6 +1,47 @@
 import "./form.css";
+import { useReducer } from "react";
+
+const initialState = {
+  username: "",
+  mail: "",
+  phone: "",
+  option: "",
+  txt: "",
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "Update":
+      return { ...state, [action.field]: action.value };
+
+    default:
+      return state;
+  }
+};
 
 export default function Form() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log("State: ", state);
+
+  const submt = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("username", state.username);
+    formData.append("mail", state.mail);
+    formData.append("phone", state.phone);
+    formData.append("option", state.option);
+    formData.append("txt", state.txt);
+
+    console.log("Submitted: ", {
+      username: state.username,
+      mail: state.mail,
+      phone: state.phone,
+      option: state.option,
+      txt: state.txt,
+    });
+  };
   return (
     <div className="formMain">
       <div
@@ -113,68 +154,122 @@ export default function Form() {
           }}
           className="formRight"
         >
-          <input placeholder="Your Name" type="text" className="boxes" />
-          <input placeholder="Your Email" type="email" className="boxes" />
-          <input placeholder="Your Phone Number" type="tel" className="boxes" />
-          <select
-            style={{
-              width: "430px",
-              height: "50px",
-            }}
-            placeholder="Service I need"
-            className="boxes"
-          >
-            <option disabled selected>
-              Service I need
-            </option>
-            <option>Html</option>
-            <option>CSS</option>
-            <option>JS</option>
-            <option>React</option>
-          </select>
-          <textarea
-            placeholder="Your message here"
-            className="boxes"
-            style={{
-              height: "90px",
-            }}
-          ></textarea>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <form onSubmit={submt}>
             <input
-              style={{
-                marginRight: "20px",
-                height: "25px",
-                width: "25px",
-              }}
-              type="checkbox"
+              value={state.username}
+              onChange={(e) =>
+                dispatch({
+                  type: "Update",
+                  field: "username",
+                  value: e.target.value,
+                })
+              }
+              placeholder="Your Name"
+              type="text"
+              className="boxes"
             />
-            <label
+            <input
+              value={state.mail}
+              onChange={(e) =>
+                dispatch({
+                  type: "Update",
+                  field: "mail",
+                  value: e.target.value,
+                })
+              }
+              placeholder="Your Email"
+              type="email"
+              className="boxes"
+            />
+            <input
+              value={state.phone}
+              onChange={(e) =>
+                dispatch({
+                  type: "Update",
+                  field: "phone",
+                  value: e.target.value,
+                })
+              }
+              placeholder="Your Phone Number"
+              type="tel"
+              className="boxes"
+            />
+            <select
+              value={state.option}
+              onChange={(e) =>
+                dispatch({
+                  type: "Update",
+                  field: "option",
+                  value: e.target.value,
+                })
+              }
+              style={{
+                width: "430px",
+                height: "50px",
+              }}
+              placeholder="Service I need"
+              className="boxes"
+            >
+              <option value="" disabled selected>
+                Service I need
+              </option>
+              <option>Html</option>
+              <option>CSS</option>
+              <option>JS</option>
+              <option>React</option>
+            </select>
+            <textarea
+              value={state.txt}
+              onChange={(e) =>
+                dispatch({
+                  type: "Update",
+                  field: "txt",
+                  value: e.target.value,
+                })
+              }
+              placeholder="Your message here"
+              className="boxes"
+              style={{
+                height: "90px",
+              }}
+            ></textarea>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <input
+                style={{
+                  marginRight: "20px",
+                  height: "25px",
+                  width: "25px",
+                }}
+                type="checkbox"
+              />
+              <label
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: "400",
+                  fontSize: "16px",
+                }}
+              >
+                I have read and accepted the privacy policy
+              </label>
+            </div>
+            <button
               style={{
                 fontFamily: "Inter",
-                fontWeight: "400",
-                fontSize: "16px",
+                fontWeight: "600",
+                fontSize: "22px",
+                padding: "9px 16px",
+                backgroundColor: "rgba(76, 175, 79, 1)",
+                width: "fit-content",
+                borderRadius: "6px",
+                marginTop: "20px",
+                cursor: "pointer",
               }}
+              type="submit"
+              className="button"
             >
-              I have read and accepted the privacy policy
-            </label>
-          </div>
-          <button
-            style={{
-              fontFamily: "Inter",
-              fontWeight: "600",
-              fontSize: "22px",
-              padding: "9px 16px",
-              backgroundColor: "rgba(76, 175, 79, 1)",
-              width: "fit-content",
-              borderRadius: "6px",
-              marginTop: "20px",
-              cursor: "pointer",
-            }}
-            type="submit"
-            className="button"
-          >
-            Send us a message!
-          </button>
+              Send us a message!
+            </button>
+          </form>
         </div>
       </div>
     </div>
