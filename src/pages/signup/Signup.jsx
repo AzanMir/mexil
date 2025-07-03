@@ -73,77 +73,98 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <h1 style={{ textAlign: "center", fontFamily: "Inter" }}>Signup</h1>
-      <div className="centralForm">
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "300px",
-            gap: "20px",
-            padding: "20px",
-          }}
-          onSubmit={handleSubmit}
-        >
-          <TextInput
-            name="username"
-            value={dataaa.username || ""}
-            onChange={handleChange}
-            placeholder="Your Name"
-            type="text"
-          />
-          <TextInput
-            name="mail"
-            value={dataaa.mail || ""}
-            onChange={handleChange}
-            placeholder="Your Email"
-            type="email"
-          />
-          <TextInput
-            name="phone"
-            value={dataaa.phone || ""}
-            onChange={handleChange}
-            placeholder="Your Phone Number"
-            type="tel"
-          />
-          <TextInput
-            name="password"
-            value={dataaa.password || ""}
-            onChange={handleChange}
-            placeholder="Enter Password"
-            type="password"
-          />
-          <TextInput
-            name="confirmPassword"
-            value={dataaa.confirmPassword || ""}
-            onChange={handleChange}
-            placeholder="Confirm Password"
-            type="password"
-          />
-          <CheckboxInput
-            name="privacy"
-            checked={dataaa.privacy || false}
-            onChange={handleChange}
-          />
-          <SubmitButton onSubmit={handleSubmit} />
-          {message && (
-            <div
-              style={{
-                marginTop: "10px",
-                padding: "10px",
-                backgroundColor: message.includes("Error")
-                  ? "#ffebee"
-                  : "#e8f5e8",
-                color: message.includes("Error") ? "#c62828" : "#2e7d32",
-                borderRadius: "4px",
-                fontSize: "14px",
-              }}
-            >
-              {message}
-            </div>
-          )}
-        </form>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "gray",
+          width: "500px",
+          borderRadius: "16px",
+        }}
+      >
+        <h1 style={{ textAlign: "center", fontFamily: "Inter" }}>Signup</h1>
+        <div className="centralForm">
+          <form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "300px",
+              gap: "20px",
+              padding: "20px",
+            }}
+            onSubmit={handleSubmit}
+          >
+            <TextInput
+              name="username"
+              value={dataaa.username || ""}
+              onChange={handleChange}
+              placeholder="Your Name"
+              type="text"
+            />
+            <TextInput
+              name="mail"
+              value={dataaa.mail || ""}
+              onChange={handleChange}
+              placeholder="Your Email"
+              type="email"
+            />
+            <TextInput
+              name="phone"
+              value={dataaa.phone || ""}
+              onChange={handleChange}
+              placeholder="Your Phone Number"
+              type="tel"
+            />
+            <TextInput
+              name="password"
+              value={dataaa.password || ""}
+              onChange={handleChange}
+              placeholder="Enter Password"
+              type="password"
+            />
+            <TextInput
+              name="confirmPassword"
+              value={dataaa.confirmPassword || ""}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+              type="password"
+            />
+            <CheckboxInput
+              name="privacy"
+              checked={dataaa.privacy || false}
+              onChange={handleChange}
+            />
+            <SubmitButton onSubmit={handleSubmit} />
+
+            <button className="boxes" style={{ cursor: "pointer" }}>
+              Already have an account?
+            </button>
+
+            {message && (
+              <div
+                style={{
+                  marginTop: "10px",
+                  padding: "10px",
+                  backgroundColor: message.includes("Error")
+                    ? "#ffebee"
+                    : "#e8f5e8",
+                  color: message.includes("Error") ? "#c62828" : "#2e7d32",
+                  borderRadius: "4px",
+                  fontSize: "14px",
+                }}
+              >
+                {message}
+              </div>
+            )}
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export default function Navbar() {
         <div>
           <div className="navbar-links">
             <div className="navbarLink">
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </div>
 
             <div className="navbarLink">
@@ -36,12 +36,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div style={{ display: "flex" }}>
-          <div style={{ marginRight: "5px" }} className="navbarButton">
-            Sign Up
-          </div>
-          <div className="navbarButton">Login</div>
-        </div>
+        <div className="navbarButton">Get in Touch</div>
       </div>
     </nav>
   );
