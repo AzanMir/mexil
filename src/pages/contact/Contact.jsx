@@ -1,5 +1,5 @@
 import "./contact.css";
-import { useContext, useCallback } from "react";
+import { useContext, useCallback, useState } from "react";
 import { cntxt } from "../../context/Context";
 import React from "react";
 
@@ -72,6 +72,7 @@ const SubmitButton = React.memo(({ onSubmit }) => {
 
 export default function Contact() {
   const { dataaa, setdataaa } = useContext(cntxt);
+  const [message, setMessage] = useState("");
 
   const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
@@ -80,13 +81,23 @@ export default function Contact() {
       [name]: type === "checkbox" ? checked : value,
     }));
   }, []);
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      console.log("Form submitted:", dataaa);
-    },
-    [dataaa]
-  );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataaa),
+      });
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      const data = await res.json();
+      setMessage(data.message);
+      console.log("Response:", data); // Check browser console
+    } catch (error) {
+      setMessage("Error: " + error.message);
+      console.error("Fetch error:", error); // Check browser console
+    }
+  };
 
   return (
     <div className="centralForm">

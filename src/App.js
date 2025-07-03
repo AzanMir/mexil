@@ -1,6 +1,8 @@
 import AppRoutes from "./AppRoutes";
 import { cntxt } from "./context/Context";
 import { useState } from "react";
+import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/Login";
 function App() {
   const initialState = {
     username: "",
