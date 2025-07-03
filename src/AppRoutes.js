@@ -6,6 +6,7 @@ import Blog from "./pages/blog/Blog";
 import Contact from "./pages/contact/Contact";
 import Project from "./pages/projects/Project";
 import Service from "./pages/servics/Service";
+import Footer from "./pages/footer/Footer";
 
 function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ function AppRoutes() {
         <Route path="/projects" element={<Project />} />
         <Route path="/servics" element={<Service />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

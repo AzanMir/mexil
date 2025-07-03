@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 80px;
+    background-image: url("bgimg.png");
 
 
 }
@@ -32,11 +33,17 @@
 .navbarButton {
 
     background-color: #41AE5D;
-    padding: 19px 58px 19px 58px;
+    padding: 12px 38px;
     border-radius: 6px;
     color: white;
     font-family: "Inter";
     font-weight: 600;
     font-size: 14px;
 
+}
+
+.navbarButton:hover {
+    background-color: white;
+    color: #41AE5D;
+    cursor: pointer;
 }

@@ -1,9 +1,8 @@
 import "./contact.css";
 import { useContext, useCallback } from "react";
 import { cntxt } from "../../context/Context";
-import React from "react"; // For React.memo
+import React from "react";
 
-// Memoized TextInput component
 const TextInput = React.memo(({ name, value, onChange, placeholder, type }) => {
   console.log(`TextInput rendered: ${name}`);
   return (
@@ -34,7 +33,6 @@ const SelectInput = React.memo(({ name, value, onChange }) => {
   );
 });
 
-// Memoized TextArea component
 const TextArea = React.memo(({ name, value, onChange, placeholder }) => {
   console.log(`TextArea rendered: ${name}`);
   return (
@@ -48,7 +46,6 @@ const TextArea = React.memo(({ name, value, onChange, placeholder }) => {
   );
 });
 
-// Memoized CheckboxInput component
 const CheckboxInput = React.memo(({ name, checked, onChange }) => {
   console.log(`CheckboxInput rendered: ${name}`);
   return (
@@ -64,7 +61,6 @@ const CheckboxInput = React.memo(({ name, checked, onChange }) => {
   );
 });
 
-// Memoized SubmitButton component
 const SubmitButton = React.memo(({ onSubmit }) => {
   console.log("SubmitButton rendered");
   return (
@@ -77,73 +73,72 @@ const SubmitButton = React.memo(({ onSubmit }) => {
 export default function Contact() {
   const { dataaa, setdataaa } = useContext(cntxt);
 
-  // Memoize handleChange to stabilize for child components
   const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
     setdataaa((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-  }, []); // Empty dependency array since no external variables are used
-
-  // Memoize handleSubmit for potential child components or hooks
+  }, []);
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
       console.log("Form submitted:", dataaa);
     },
-    [dataaa] // Dependency: dataaa is used in the console.log
+    [dataaa]
   );
 
   return (
-    <form
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "300px",
-        gap: "20px",
-        padding: "20px",
-      }}
-      onSubmit={handleSubmit}
-    >
-      <TextInput
-        name="username"
-        value={dataaa.username}
-        onChange={handleChange}
-        placeholder="Your Name"
-        type="text"
-      />
-      <TextInput
-        name="mail"
-        value={dataaa.mail}
-        onChange={handleChange}
-        placeholder="Your Email"
-        type="email"
-      />
-      <TextInput
-        name="phone"
-        value={dataaa.phone}
-        onChange={handleChange}
-        placeholder="Your Phone Number"
-        type="tel"
-      />
-      <SelectInput
-        name="option"
-        value={dataaa.option}
-        onChange={handleChange}
-      />
-      <TextArea
-        name="txt"
-        value={dataaa.txt}
-        onChange={handleChange}
-        placeholder="Your message here"
-      />
-      <CheckboxInput
-        name="privacy"
-        checked={dataaa.privacy || false} // Ensure boolean default
-        onChange={handleChange}
-      />
-      <SubmitButton onSubmit={handleSubmit} />
-    </form>
+    <div className="centralForm">
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "300px",
+          gap: "20px",
+          padding: "20px",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <TextInput
+          name="username"
+          value={dataaa.username}
+          onChange={handleChange}
+          placeholder="Your Name"
+          type="text"
+        />
+        <TextInput
+          name="mail"
+          value={dataaa.mail}
+          onChange={handleChange}
+          placeholder="Your Email"
+          type="email"
+        />
+        <TextInput
+          name="phone"
+          value={dataaa.phone}
+          onChange={handleChange}
+          placeholder="Your Phone Number"
+          type="tel"
+        />
+        <SelectInput
+          name="option"
+          value={dataaa.option}
+          onChange={handleChange}
+        />
+        <TextArea
+          name="txt"
+          value={dataaa.txt}
+          onChange={handleChange}
+          placeholder="Your message here"
+        />
+        <CheckboxInput
+          name="privacy"
+          checked={dataaa.privacy || false}
+          onChange={handleChange}
+        />
+        <SubmitButton onSubmit={handleSubmit} />
+      </form>
+    </div>
   );
 }
