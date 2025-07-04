@@ -17,7 +17,7 @@ function App() {
   return (
     <cntxt.Provider value={{ dataaa, setdataaa }}>
       <div>
-        <Signup />
+        <AppRoutes />
       </div>
     </cntxt.Provider>
   );
