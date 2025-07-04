@@ -1,21 +1,27 @@
 import AppRoutes from "./AppRoutes";
 import { cntxt } from "./context/Context";
 import { useState } from "react";
-import Signup from "./pages/signup/Signup";
-import Login from "./pages/login/Login";
+
 function App() {
   const initialState = {
     username: "",
-    mail: "",
+    email: "", // Changed from "mail" to "email"
     phone: "",
     option: "",
     txt: "",
+    password: "",
+    confirmPassword: "",
+    privacy: false,
   };
 
   const [dataaa, setdataaa] = useState(initialState);
+  // **NEW: Add authentication state**
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
-    <cntxt.Provider value={{ dataaa, setdataaa }}>
+    <cntxt.Provider
+      value={{ dataaa, setdataaa, isAuthenticated, setIsAuthenticated }}
+    >
       <div>
         <AppRoutes />
       </div>

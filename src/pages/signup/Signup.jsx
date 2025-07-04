@@ -1,6 +1,7 @@
 import { useContext, useCallback, useState } from "react";
 import { cntxt } from "../../context/Context";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TextInput = React.memo(({ name, value, onChange, placeholder, type }) => {
   console.log(`TextInput rendered: ${name}`);
@@ -45,6 +46,7 @@ const SubmitButton = React.memo(({ onSubmit }) => {
 export default function Signup() {
   const { dataaa, setdataaa } = useContext(cntxt);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
@@ -56,20 +58,54 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate privacy checkbox
+    if (!dataaa.privacy) {
+      setMessage("Error: You must accept the privacy policy");
+      return;
+    }
+
+    // Validate password match
+    if (dataaa.password !== dataaa.confirmPassword) {
+      setMessage("Error: Passwords do not match");
+      return;
+    }
+
     try {
       const res = await fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataaa),
+        body: JSON.stringify({
+          username: dataaa.username,
+          email: dataaa.email,
+          password: dataaa.password,
+        }),
       });
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
       setMessage(data.message);
-      console.log("Response:", data); // Check browser console
+      console.log("Response:", data);
+
+      if (res.ok) {
+        // Clear form data
+        setdataaa({
+          username: "",
+          email: "",
+          phone: "",
+          password: "",
+          confirmPassword: "",
+          privacy: false,
+        });
+        navigate("/login");
+      }
     } catch (error) {
       setMessage("Error: " + error.message);
-      console.error("Fetch error:", error); // Check browser console
+      console.error("Fetch error:", error);
     }
+  };
+
+  const goToLogin = () => {
+    navigate("/login");
   };
 
   return (
@@ -109,8 +145,8 @@ export default function Signup() {
               type="text"
             />
             <TextInput
-              name="mail"
-              value={dataaa.mail || ""}
+              name="email"
+              value={dataaa.email || ""}
               onChange={handleChange}
               placeholder="Your Email"
               type="email"
@@ -142,8 +178,7 @@ export default function Signup() {
               onChange={handleChange}
             />
             <SubmitButton onSubmit={handleSubmit} />
-
-            <button className="boxes" style={{ cursor: "pointer" }}>
+            <button className="boxes" onClick={goToLogin} type="button">
               Already have an account?
             </button>
 

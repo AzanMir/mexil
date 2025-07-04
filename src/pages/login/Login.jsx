@@ -1,13 +1,14 @@
-import { useContext, useCallback, useState } from "react";
+import { useContext, useCallback, useState, useEffect } from "react";
 import { cntxt } from "../../context/Context";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TextInput = React.memo(({ name, value, onChange, placeholder, type }) => {
   console.log(`TextInput rendered: ${name}`);
   return (
     <input
       name={name}
-      value={value}
+      value={value || ""}
       onChange={onChange}
       placeholder={placeholder}
       type={type}
@@ -30,7 +31,7 @@ const CheckboxInput = React.memo(({ name, checked, onChange }) => {
       <input
         name={name}
         type="checkbox"
-        checked={checked}
+        checked={checked || false}
         onChange={onChange}
       />
       <label>I have read and accepted the privacy policy</label>
@@ -48,8 +49,10 @@ const SubmitButton = React.memo(({ onSubmit }) => {
 });
 
 export default function Login() {
-  const { dataaa, setdataaa } = useContext(cntxt);
+  const { dataaa, setdataaa, setIsAuthenticated } = useContext(cntxt);
   const [message, setMessage] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const navigate = useNavigate();
 
   const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
@@ -61,20 +64,54 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate privacy checkbox
+    if (!dataaa.privacy) {
+      setMessage("Error: You must accept the privacy policy");
+      return;
+    }
+
     try {
       const res = await fetch("http://localhost:5000/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataaa),
+        body: JSON.stringify({
+          email: dataaa.email,
+          password: dataaa.password,
+        }),
       });
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
       setMessage(data.message);
-      console.log("Response:", data); // Check browser console
+      console.log("Response:", data);
+
+      if (res.ok && data.token) {
+        setToken(data.token);
+        setIsAuthenticated(true);
+        // Clear form data
+        setdataaa({
+          email: "",
+          password: "",
+          privacy: false,
+        });
+        navigate("/home");
+      }
     } catch (error) {
       setMessage("Error: " + error.message);
-      console.error("Fetch error:", error); // Check browser console
+      console.error("Fetch error:", error);
     }
+  };
+
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
+    }
+  }, [token]);
+
+  const goToSignup = () => {
+    navigate("/signup");
   };
 
   return (
@@ -105,11 +142,11 @@ export default function Login() {
         >
           <h1 style={{ textAlign: "center", fontFamily: "Inter" }}>Login</h1>
           <TextInput
-            name="username"
-            value={dataaa.username || ""}
+            name="email"
+            value={dataaa.email || ""}
             onChange={handleChange}
-            placeholder="Enter Username"
-            type="text"
+            placeholder="Enter Email"
+            type="email"
           />
           <TextInput
             name="password"
@@ -124,7 +161,9 @@ export default function Login() {
             onChange={handleChange}
           />
           <SubmitButton onSubmit={handleSubmit} />
-          <button className="boxes">Don't have an account</button>
+          <button className="boxes" onClick={goToSignup} type="button">
+            Don't have an account?
+          </button>
           {message && (
             <div
               style={{
